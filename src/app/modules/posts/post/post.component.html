@@ -1,1 +1,16 @@
-<p>post works!</p>
+<div class="card">
+  <img [src]="post.imagePath" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <p class="card-text">{{post.description}}</p>
+    <p>Author: <small>{{post.author}}</small></p>
+  </div>
+  <div class="card-footer d-flex justify-content-around">
+    <span>
+      <small class="text-muted">Added On: {{post.createdAt | date}}</small>
+    </span>
+    <span>
+      <small class="btn-link">Edit</small> | <small class="btn-link">Delete</small>
+    </span>
+  </div>
+</div>
