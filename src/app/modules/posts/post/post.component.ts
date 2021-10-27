@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Post} from "../../../post.model";
+import {PostsService} from "../../../posts.service";
 
 @Component({
   selector: 'app-post',
@@ -9,9 +10,13 @@ import {Post} from "../../../post.model";
 export class PostComponent implements OnInit {
 
   @Input('post') post: Post;
-  constructor() { }
+  constructor(private postsService: PostsService) { }
 
   ngOnInit(): void {
+  }
+
+  onDelete() {
+    this.postsService.deletePost(this.post.title);
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Post} from "../../../post.model";
+import {PostsService} from "../../../posts.service";
 
 @Component({
   selector: 'app-posts-list',
@@ -7,16 +8,11 @@ import {Post} from "../../../post.model";
   styleUrls: ['./posts-list.component.css']
 })
 export class PostsListComponent implements OnInit {
-
-  postsList: Post[] = [
-    new Post('post 1', 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
-      '', 'amit dubey', new Date()),
-    new Post('post 2', 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
-      '', 'amit dubey', new Date())
-  ]
-  constructor() { }
+  postsList: Post[] = [];
+  constructor(private postsService: PostsService) { }
 
   ngOnInit(): void {
+    this.postsList = this.postsService.getAllPosts();
   }
 
 }

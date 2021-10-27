@@ -1,7 +1,11 @@
 
 <div class="container mt-3">
-  <h2>All Posts</h2>
-  <div *ngFor="let post of postsList">
-    <app-post [post]="post"></app-post>
+  <div class="row">
+    <h2 class="text-center mb-2">{{postsList.length ? 'All Posts' : 'No posts found'}}</h2>
+    <div class="col-8 mx-auto" *ngFor="let post of postsList">
+        <app-post [post]="post"></app-post>
+    </div>
   </div>
+
+
 </div>
