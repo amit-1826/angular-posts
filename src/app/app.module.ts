@@ -8,6 +8,7 @@ import { PostsListComponent } from './modules/posts/posts-list/posts-list.compon
 import { PostComponent } from './modules/posts/post/post.component';
 import { AddEditPostComponent } from './modules/posts/add-edit-post/add-edit-post.component';
 import { HeaderComponent } from './components/header/header.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,10 +19,11 @@ import { HeaderComponent } from './components/header/header.component';
     AddEditPostComponent,
     HeaderComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

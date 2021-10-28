@@ -21,4 +21,8 @@ export class PostsService {
   deletePost(title: string) {
     this.postsList.splice(this.postsList.findIndex((post) => post.title == title), 1);
   }
+
+  addPost(post: Post) {
+    this.postsList.push(post);
+  }
 }
