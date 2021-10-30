@@ -18,11 +18,19 @@ export class PostsService {
     return this.postsList;
   }
 
-  deletePost(title: string) {
-    this.postsList.splice(this.postsList.findIndex((post) => post.title == title), 1);
+  getPost(index: number) {
+    return this.postsList[index];
+  }
+
+  deletePost(title: string, index: number) {
+    this.postsList.splice(index, 1);
   }
 
   addPost(post: Post) {
     this.postsList.push(post);
+  }
+
+  updatePost(post: any, index: number) {
+    this.postsList[index] = post;
   }
 }

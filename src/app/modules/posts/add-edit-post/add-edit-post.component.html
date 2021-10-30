@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-6 mx-auto">
-      <h3 class="text-center my-2">Add new post</h3>
+      <h3 class="text-center my-2">{{isEdit ? 'Edit' : 'Add new'}} post</h3>
       <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
         <div class="form-group my-1">
           <label>Title</label>
@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="form-group my-1">
-          <button class="btn btn-primary" type="submit" [disabled]="postForm.invalid" > {{isEditMode ? 'Update' : 'Save'}}</button> | <button (click)="clearForm()" type="button" class="btn btn-secondary"> Clear</button>
+          <button class="btn btn-primary" type="submit" [disabled]="postForm.invalid" > {{isEdit ? 'Update' : 'Save'}}</button> <button *ngIf="!isEdit" (click)="clearForm()" type="button" class="btn btn-secondary ms-1"> Clear</button> <button *ngIf="isEdit" (click)="cancelEdit()" type="button" class="btn btn-secondary ms-1"> Cancel</button>
         </div>
       </form>
     </div>
