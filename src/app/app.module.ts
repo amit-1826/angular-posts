@@ -9,6 +9,7 @@ import { PostComponent } from './modules/posts/post/post.component';
 import { AddEditPostComponent } from './modules/posts/add-edit-post/add-edit-post.component';
 import { HeaderComponent } from './components/header/header.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { FavoritesComponent } from './modules/posts/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     PostsListComponent,
     PostComponent,
     AddEditPostComponent,
-    HeaderComponent
+    HeaderComponent,
+    FavoritesComponent
   ],
     imports: [
         BrowserModule,

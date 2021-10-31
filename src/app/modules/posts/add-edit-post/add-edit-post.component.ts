@@ -56,6 +56,7 @@ export class AddEditPostComponent implements OnInit {
     if (!this.isEdit) {
       post.author = 'Amit Dubey';
       post.createdAt = new Date();
+      post.isFavorite = false;
       this.postsService.addPost(post);
     } else {
       const updatedPost = {...this.selectedPost, ...post};

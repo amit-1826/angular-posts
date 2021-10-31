@@ -9,6 +9,10 @@
     <span>
       <small class="text-muted">Added On: {{post.createdAt | date}}</small>
     </span>
+    <span [title]="(!post.isFavorite ? 'Add to ' : 'Remove from ' ) + 'Favorites'" (click)="onFavoritesChanged()">
+      <span *ngIf="post.isFavorite"><i class="fa fa-star"></i></span>
+      <span *ngIf="!post.isFavorite"><i class="far fa-star"></i></span>
+    </span>
     <span>
       <small class="btn-link" role="button" (click)="onEditPost()">Edit</small> | <small class="btn-link" role="button" (click)="onDelete()">Delete</small>
     </span>

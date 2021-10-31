@@ -26,4 +26,8 @@ export class PostComponent implements OnInit {
     this.postsService.deletePost(this.post.title, this.index);
   }
 
+  onFavoritesChanged() {
+    this.post.isFavorite = !this.post.isFavorite;
+  }
+
 }

@@ -1,0 +1,11 @@
+
+<div class="container mt-3">
+  <div class="row">
+    <h2 class="text-center mb-2">{{favoritesList.length ? 'All Posts' : 'No posts found'}}</h2>
+    <div class="col-8 mx-auto" *ngFor="let post of favoritesList; let i=index;">
+      <app-post [post]="post" [index]="i"></app-post>
+    </div>
+  </div>
+
+
+</div>
