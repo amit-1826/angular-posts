@@ -10,6 +10,7 @@ import { AddEditPostComponent } from './modules/posts/add-edit-post/add-edit-pos
 import { HeaderComponent } from './components/header/header.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { FavoritesComponent } from './modules/posts/favorites/favorites.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FavoritesComponent } from './modules/posts/favorites/favorites.componen
     imports: [
         BrowserModule,
         AppRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+      HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

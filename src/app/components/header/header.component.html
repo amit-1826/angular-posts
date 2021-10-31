@@ -12,12 +12,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav">
-        <a href="#" class="nav-item nav-link" [routerLink]="['posts']" [routerLinkActive]="'active'">Posts</a>
-        <a href="#" class="nav-item nav-link" [routerLink]="['posts/add']" [routerLinkActive]="'active'">Add Post</a>
-        <a href="#" class="nav-item nav-link">Fetch Data</a>
+        <a class="nav-item nav-link" [routerLink]="['posts']" [routerLinkActive]="'active'">Posts</a>
+        <a class="nav-item nav-link" [routerLink]="['favorites']" [routerLinkActive]="'active'">Favorites</a>
+        <a class="nav-item nav-link" [routerLink]="['posts/add']" [routerLinkActive]="'active'">Add Post</a>
       </div>
       <div class="navbar-nav ms-auto">
-        <a href="#" class="nav-item nav-link" [routerLink]="['favorites']" [routerLinkActive]="'active'">Favorites</a>
+        <a style="cursor: pointer" class="nav-item nav-link" (click)="savePosts()">Save Posts</a>
+        <a style="cursor: pointer" class="nav-item nav-link" (click)="fetchPosts()" >Fetch Posts</a>
         <a href="#" class="nav-item nav-link" [routerLink]="['auth']" [routerLinkActive]="'active'">Login</a>
       </div>
     </div>

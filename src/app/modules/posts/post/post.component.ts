@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Post} from "../../../post.model";
-import {PostsService} from "../../../posts.service";
+import {PostsService} from "../../../services/posts.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -12,6 +12,7 @@ export class PostComponent implements OnInit {
 
   @Input('post') post: Post;
   @Input('index') index: number;
+  @Input('showFavorite') showFavorite = true;
   constructor(private postsService: PostsService,
               private router: Router) { }
 
@@ -28,6 +29,10 @@ export class PostComponent implements OnInit {
 
   onFavoritesChanged() {
     this.post.isFavorite = !this.post.isFavorite;
+  }
+
+  likePOst() {
+    this.postsService.likePost(this.index);
   }
 
 }
