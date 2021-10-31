@@ -1,1 +1,23 @@
-<p>post works!</p>
+<div class="card mb-3">
+  <img [src]="post.imagePath" class="card-img-top" alt="{{post.title}}">
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <p class="card-text">{{post.description}}</p>
+    <p>Author: <small>{{post.author}}</small></p>
+    <p>
+      <button class="btn btn-outline-success btn-sm" (click)="likePOst()"><i class="fa fa-thumbs-up"></i> Like {{ post.likes }}</button>
+    </p>
+  </div>
+  <div class="card-footer d-flex justify-content-around">
+    <span>
+      <small class="text-muted">Added On: {{post.createdAt | date}}</small>
+    </span>
+    <span *ngIf="showFavorite" [title]="(!post.isFavorite ? 'Add to ' : 'Remove from ' ) + 'Favorites'" (click)="onFavoritesChanged()">
+      <span *ngIf="post.isFavorite"><i class="fa fa-star"></i></span>
+      <span *ngIf="!post.isFavorite"><i class="far fa-star"></i></span>
+    </span>
+    <span>
+      <small class="btn-link" role="button" (click)="onEditPost()">Edit</small> | <small class="btn-link" role="button" (click)="onDelete()">Delete</small>
+    </span>
+  </div>
+</div>

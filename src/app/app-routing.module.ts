@@ -1,7 +1,37 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {PostsListComponent} from "./modules/posts/posts-list/posts-list.component";
+import {AuthComponent} from "./modules/auth/auth.component";
+import {AddEditPostComponent} from "./modules/posts/add-edit-post/add-edit-post.component";
+import {FavoritesComponent} from "./modules/posts/favorites/favorites.component";
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'posts',
+    pathMatch: 'full'
+  },
+  {
+    path: 'posts',
+    component: PostsListComponent
+  },
+  {
+    path: 'posts/add',
+    component: AddEditPostComponent
+  },
+  {
+    path: 'posts/:id',
+    component: AddEditPostComponent
+  },
+  {
+    path: 'auth',
+    component: AuthComponent
+  },
+  {
+    path: 'favorites',
+    component: FavoritesComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

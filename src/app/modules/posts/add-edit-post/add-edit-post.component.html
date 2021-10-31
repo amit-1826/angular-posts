@@ -1,1 +1,37 @@
-<p>add-edit-post works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <h3 class="text-center my-2">{{isEdit ? 'Edit' : 'Add new'}} post</h3>
+      <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+        <div class="form-group my-1">
+          <label>Title</label>
+          <input class="form-control" type="text" formControlName="title"  />
+          <div class="text-danger" *ngIf="formControl.title.touched && formControl.title.errors">
+            <span *ngIf="formControl.title.errors && formControl.title.errors.required">Title is required</span>
+            <span *ngIf="formControl.title.errors && formControl.title.errors.maxlength">Cannot exceed 30 characters</span>
+          </div>
+        </div>
+        <div class="form-group my-1">
+          <label>ImagePath</label>
+          <input class="form-control" type="text"  formControlName="imagePath" />
+          <img class="img-fluid my-1" *ngIf="formControl.imagePath.value" [src]="formControl.imagePath.value" alt="{{formControl.imagePath.value}}">
+          <div class="text-danger" *ngIf="formControl.imagePath.touched && formControl.imagePath.errors">
+            <span *ngIf="formControl.imagePath.errors && formControl.imagePath.errors.required">Image Path is required</span>
+          </div>
+        </div>
+        <div class="form-group my-1">
+          <label>Description</label>
+          <textarea class="form-control" formControlName="description"></textarea>
+          <span *ngIf="formControl.description.touched && formControl.description.value">Characters: {{formControl.description.value.length}}</span>
+          <div class="text-danger" *ngIf="formControl.description.touched && formControl.description.errors">
+            <span *ngIf="formControl.description.errors && formControl.description.errors.required">Description is required</span>
+            <span *ngIf="formControl.description.errors && formControl.description.errors.maxlength">Cannot exceed 255 characters</span>
+          </div>
+        </div>
+        <div class="form-group my-1">
+          <button class="btn btn-primary" type="submit" [disabled]="postForm.invalid" > {{isEdit ? 'Update' : 'Save'}}</button> <button *ngIf="!isEdit" (click)="clearForm()" type="button" class="btn btn-secondary ms-1"> Clear</button> <button *ngIf="isEdit" (click)="cancelEdit()" type="button" class="btn btn-secondary ms-1"> Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

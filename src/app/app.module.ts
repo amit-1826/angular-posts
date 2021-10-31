@@ -8,6 +8,9 @@ import { PostsListComponent } from './modules/posts/posts-list/posts-list.compon
 import { PostComponent } from './modules/posts/post/post.component';
 import { AddEditPostComponent } from './modules/posts/add-edit-post/add-edit-post.component';
 import { HeaderComponent } from './components/header/header.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import { FavoritesComponent } from './modules/posts/favorites/favorites.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,12 +19,15 @@ import { HeaderComponent } from './components/header/header.component';
     PostsListComponent,
     PostComponent,
     AddEditPostComponent,
-    HeaderComponent
+    HeaderComponent,
+    FavoritesComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+      HttpClientModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
