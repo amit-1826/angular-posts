@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
-import {environment} from "../../environments/environment";
 import {PostsService} from "./posts.service";
 import {Post} from "../post.model";
 import {HttpClient} from "@angular/common/http";
 import {tap} from "rxjs/operators";
-
-const AUTH_KEY = environment.authKey;
 
 @Injectable({
   providedIn: 'root'
