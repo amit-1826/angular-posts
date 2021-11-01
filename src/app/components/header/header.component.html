@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav">
         <a class="nav-item nav-link" [routerLink]="['posts']" [routerLinkActive]="'active'">Posts</a>
-        <a class="nav-item nav-link" [routerLink]="['favorites']" [routerLinkActive]="'active'">Favorites</a>
+        <a class="nav-item nav-link" [routerLink]="['favorites']" [routerLinkActive]="'active'">Favorites {{favoritesCount > 0 ? '(' + favoritesCount + ')' : '' }}</a>
         <a class="nav-item nav-link" [routerLink]="['posts/add']" [routerLinkActive]="'active'">Add Post</a>
       </div>
       <div class="navbar-nav ms-auto">
