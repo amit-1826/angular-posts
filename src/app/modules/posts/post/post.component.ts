@@ -29,6 +29,7 @@ export class PostComponent implements OnInit {
 
   onFavoritesChanged() {
     this.post.isFavorite = !this.post.isFavorite;
+    this.postsService.onPostListChanged.emit();
   }
 
   likePOst() {

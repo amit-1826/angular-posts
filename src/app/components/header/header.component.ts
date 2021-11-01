@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DataStorageService} from "../../services/data-storage.service";
+import {PostsService} from "../../services/posts.service";
 
 @Component({
   selector: 'app-header',
@@ -8,10 +9,20 @@ import {DataStorageService} from "../../services/data-storage.service";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private dataStorageService: DataStorageService) { }
+  favoritesCount = 0;
+  constructor(private dataStorageService: DataStorageService,
+              private postsService: PostsService) { }
 
   ngOnInit(): void {
     this.fetchPosts();
+    this.getFavoritesCount();
+    this.postsService.onPostListChanged.subscribe(() => {
+      this.getFavoritesCount();
+    })
+  }
+
+  getFavoritesCount() {
+    this.favoritesCount = this.postsService.getFavorites().length;
   }
 
   savePosts() {
@@ -22,7 +33,7 @@ export class HeaderComponent implements OnInit {
 
   fetchPosts() {
     this.dataStorageService.fetchPosts().subscribe((response) => {
-      // alert('all posts are fetched');
+      this.getFavoritesCount();
     })
   }
 
